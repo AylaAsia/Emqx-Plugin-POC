@@ -1,0 +1,13 @@
+{application, emqx_plugin_demo,
+ [{description, "EMQ X Plugin Demo"},
+  {vsn, "git"},
+  {modules, []},
+  {registered, [emqx_plugin_demo_sup]},
+  {applications, [kernel,stdlib]},
+  {mod, {emqx_plugin_demo_app,[]}},
+  {env, []},
+  {licenses, ["Apache-2.0"]},
+  {maintainers, ["Roy <roy.fu@aylaasia.com>"]},
+  {links, [ {"Github", "https://github.com/emqx/emqx-plugin-template"}
+          ]}
+ ]}.
