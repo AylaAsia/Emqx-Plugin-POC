@@ -1,34 +1,31 @@
-emqx-plugin-template
+POC For EMQX Plugin in Erlang
 ====================
 
-This is a template plugin for the EMQ X broker. And you can see [Plugin Development Guide](https://docs.emqx.io/broker/v3/en/plugins.html#plugin-development-template) to learning how to use it.
+This is a POC work to demonstrate how to create a plugin for [EMQX](https://www.emqx.io).
 
-Plugin Config
--------------
-
-Each plugin should have a 'etc/{plugin_name}.conf|config' file to store application config.
-
-Authentication and ACL
+Usage
 ----------------------
 
+You need `git` and `docker` installed before you play around with it.
+After that just build and start it with docker:
+```sh
+git clone https://github.com/AylaAsia/Emqx-Plugin-POC.git
+cd Emqx-Plugin-POC/deploy
+docker build -t emqx-plugin-demo .
+docker run -d --name emqx --rm -p 18083:18083 -p 1883:1883 emqx-plugin-demo:latest
 ```
-emqx:hook('client.authenticate', fun ?MODULE:on_client_authenticate/3, [Env]).
-emqx:hook('client.check_acl', fun ?MODULE:on_client_check_acl/5, [Env]).
-```
+After the container started, login to the EMQX [Dashboard](http://127.0.0.1:18083) through `http://127.0.0.1:18083`
 
-Plugin and Hooks
+How it works?
 -----------------
 
 [Plugin Design](https://docs.emqx.io/broker/v3/en/design.html#plugin-design)
 
 [Hooks Design](https://docs.emqx.io/broker/v3/en/design.html#hooks-design)
 
-License
--------
+Follow-Up works
+-----------------
 
-Apache License Version 2.0
+* Optimize the `Dockerfile` stuff to simplify clustering if needed.
+* Probably add some real world auth feature in the hooks.
 
-Author
-------
-
-EMQ X Team.
