@@ -14,7 +14,10 @@ cd Emqx-Plugin-POC/deploy
 docker build -t emqx-plugin-demo .
 docker run -d --name emqx --rm -p 18083:18083 -p 1883:1883 emqx-plugin-demo:latest
 ```
-After the container started, login to the EMQX [Dashboard](http://127.0.0.1:18083) through `http://127.0.0.1:18083`
+
+Note that the plugin does not start by default. After the container started, login to the EMQX [Dashboard](http://127.0.0.1:18083) through `http://127.0.0.1:18083`
+Goto `Plugins` under `MANAGEMENT` tab, manually find this plugin: it's named `emqx_plugin_demo`,click on the right side to start it.
+
 
 How it works?
 -----------------
